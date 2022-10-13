@@ -13,10 +13,10 @@ export default function Home({ posts }) {
       </Head>
       <FeaturedPosts />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-        <div className='lg:col-span-8 col-span-1'>
+        <div className='xl:col-span-9 lg:col-span-8 col-span-1 grid grid-cols-1 lg:grid-cols-12 gap-8'>
           {posts.map((post, index) => (<PostCard post={post.node} key={post.node.title} />))}
         </div>
-        <div className='lg:col-span-4 col-span-1'>
+        <div className='xl:col-span-3 lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
             <PostWidget />
             <Categories />

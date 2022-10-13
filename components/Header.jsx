@@ -14,7 +14,7 @@ function Header() {
 
     return (
         <div className='container mx-auto px-10 mb-8'>
-            <div className='border-b w-full inline-block border-blue-400 py-8'>
+            <div className='border-b w-full inline-block border-gray-200 py-8'>
                 <div className='md:float-left block'>
                     <Link href='/'>
                         <span className='cursor-pointer fontt-bold text-4xl text-white'>
@@ -25,7 +25,7 @@ function Header() {
                 <div className='hidden mg:float-left md:contents'>
                     {categories.map((category, index) => (
                         <Link key={category.slug} href={`/category/${category.slug}`} >
-                            <span className='md:float-right mt-2 align-miggle text-white ml-4 font-semibold cursor-pointer'>
+                            <span className='md:float-right mt-2 align-miggle text-white ml-4 font-semibold cursor-pointer text-lg'>
                                 {category.name}
                             </span>
                         </Link>
