@@ -3,9 +3,10 @@ import { request, gql } from 'graphql-request'
 const graphqlAPI = process.env.NEXT_PUBLIC_MYBLOG_ENDPOINT
 
 export const getPosts = async () => {
+
   const query = gql`
     query MyQuery {
-        postsConnection {
+        postsConnection() {
           edges {
             node {
               author {
@@ -19,7 +20,6 @@ export const getPosts = async () => {
               createdAt
               slug
               title
-              excerpt
               featuredImage {
                 url
               }
@@ -39,6 +39,7 @@ export const getPosts = async () => {
 
 }
 
+
 export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug: String!) {
@@ -54,7 +55,6 @@ export const getPostDetails = async (slug) => {
               createdAt
               slug
               title
-              excerpt
               featuredImage {
                 url
               }
@@ -121,7 +121,10 @@ export const getCategories = async () => {
 query GetCategories {
   categories {
     name
-    slug 
+    slug
+    image {
+      url
+    }
   }
 }
 `
@@ -184,7 +187,6 @@ export const getCategoryPost = async (slug) => {
             createdAt
             slug
             title
-            excerpt
             featuredImage {
               url
             }

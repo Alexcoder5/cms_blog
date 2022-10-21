@@ -1,13 +1,20 @@
 import '../styles/globals.scss'
 
-import React, { useEffect, useState } from 'react'
-import { Layout } from '../components'
+import { useState } from 'react'
+import { Header } from '../components'
+import Context from '../contexts/Context'
 
 function MyApp({ Component, pageProps }) {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(3);
+
+
   return (
-    <Layout>
+    <Context.Provider value={{ currentPage, setCurrentPage, postsPerPage, searchTerm, setSearchTerm }}>
+      <Header />
       <Component {...pageProps} />
-    </Layout>
+    </Context.Provider>
   )
 }
 

@@ -1,12 +1,12 @@
-import React from 'react'
 import { useRouter } from 'next/router';
 
 
 import { getPosts, GetPostDetails, getPostDetails } from '../../services'
 
-import { PostDetail, Categories, PostWidget, Author, Loader } from '../../components'
+import { PostDetail, PostWidget, Author, Loader } from '../../components'
 
 function PostDetails({ post }) {
+
     const router = useRouter();
 
     if (router.isFallback) {
@@ -23,7 +23,6 @@ function PostDetails({ post }) {
                 <div className='col-span-1 lg:col-span-4'>
                     <div className='relative lg:sticky top-8'>
                         <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
-                        <Categories />
                     </div>
                 </div>
             </div>
